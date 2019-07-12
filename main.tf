@@ -305,14 +305,3 @@ resource "aws_s3_bucket" "s3_bucket" {
   force_destroy = var.force_destroy_bucket
 }
 
-
-output "summary" {
-  value = <<EOF
-bucket = var.bucket_name
-
-acl = contains(local.acl_list, var.bucket_acl) ? var.bucket_acl : "ACL_ERROR"
-
-tags = local.merged_tags
-
-EOF
-}
